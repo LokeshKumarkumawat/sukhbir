@@ -1541,7 +1541,7 @@ hr {
 **/
 
 .header {
-	padding: 30px;
+	padding: 15px;
 	position: absolute;
 	left: 0;
 	top: 0;
@@ -5516,8 +5516,8 @@ a.wp-block-button__link {
 	}
 
 	.header.sticky {
-		padding-top: 25px;
-		padding-bottom: 25px;
+		padding-top: 15px;
+		padding-bottom: 15px;
 	}
 
 	.menu-full ul li.has-children>a i {
@@ -5917,3 +5917,142 @@ a.wp-block-button__link {
 
 
 
+
+nav ul {
+	display: flex;
+	color: #FFFFFF!important;
+
+	justify-content: flex-end;
+	align-items: center;
+
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100%;
+  }
+  
+  nav li {
+	font-size: 20px;
+	text-align: right;
+	float: inline-end;
+
+  }
+  
+  nav li a, button {
+	display: block;
+	color: #FFFFFF!important;
+	text-align: center;
+	padding: 0px 22px;
+	text-decoration: none;
+	transition: color 0.3s ease;
+  }
+  
+
+  nav li button {
+
+	text-align: center;
+
+  }
+
+  nav li a:last-child {
+	/* padding-right: 10px; */
+  }
+
+  nav li a:hover {
+	color: #29A587 !important;
+	text-decoration: none !important;
+  }
+
+
+
+  .custom-container {
+	 max-width: 1300px; 
+	margin: 0 auto;   /* Center the container horizontally */
+	/* padding: 20px; */
+  }
+
+
+
+  @media screen and (max-width: 1024px){
+
+
+	.removepadding{
+
+		padding-left: 0px!important;
+		padding-right: 0px!important;
+	}
+
+	.nav-hidee{
+		display: none !important;
+	}
+	
+
+
+  }
+
+
+
+  @media (min-width: 1024px) {
+	.menu-hide {
+	  display: none;
+	}
+  }
+  
+  @media (max-width: 1024px) {
+	.menu-hide {
+	  display: block;
+	}
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-redesign{
+	display: flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	width: fit-content !important;
+	padding: -12px 14px !important;
+	height: 43px !important;
+	box-shadow: none !important;
+	margin-left: 12px !important;
+	margin-bottom: 0 !important;
+}
+
+
+.contact-me-btn{
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.cc{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+
+}
+
+
+.ls{
+	letter-spacing: 3px!important;
+	font-size: 15px !important;
+
+	font-weight: 500;
+
+}

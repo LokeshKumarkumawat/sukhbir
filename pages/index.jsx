@@ -562,7 +562,7 @@ const Index = () => {
       </section>
 
       {/* Section - Works */}
-      <section className="lui-section lui-gradient-top" id="works-section">
+      <section className="lui-section lui-gradient-top" id="projects">
         {/* Heading */}
         <div className="lui-heading">
           <div className="container">
