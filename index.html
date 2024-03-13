@@ -1,0 +1,639 @@
+
+<style>
+
+    .divv {
+        margin-bottom: 24px;
+        position: relative;
+   }
+    .inpt input {
+        background: #222031;
+        border-radius: 40px;
+        border: 1px solid transparent;
+        box-shadow: inset 0 2px 4px rgba(15, 14, 19, 0.25);
+        color: #fff;
+        display: block;
+        font-size: 16px;
+        height: 100%;
+        outline: none;
+        padding: 14px 120px 14px 16px;
+        width: 100%;
+   }
+    .inpt input::placeholder {
+        color: #a49ebd;
+        font-style: italic;
+   }
+    .add-t button {
+        background: #1aa7f5;
+        border: none;
+        border-radius: 40px;
+        box-shadow: 0 4px 8px -6px rgba(15, 14, 19, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        height: 32px;
+        padding: 0 12px;
+        position: absolute;
+        right: 8px;
+        transition: background-color 0.2s ease;
+        top: 8px;
+   }
+    .add-t button:hover {
+        background-color: #1a4d7e;
+   }
+    .add-t button:disabled {
+        background-color: #2f2a43;
+        color: #a49ebd;
+        cursor: not-allowed;
+   }
+
+
+    .card {
+        align-items: center;
+        backdrop-filter: blur(80px) brightness(1.25);
+        border-radius: 8px;
+        box-shadow: 0 8px 16px -12px rgba(15, 14, 19, 0.5);
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+   }
+    .card__inner {
+        padding: 32px 24px;
+        width: 100%;
+   }
+    .card p:last-of-type {
+        margin-bottom: 0;
+   }
+    .todo-list {
+        clip-path: polygon(0 1px, 100% 1px, 100% calc(100% - 1px), 0 calc(100% - 1px));
+        display: flex;
+        flex-direction: column;
+        
+        list-style: none;
+        margin: 0;
+        padding: 0;
+   }
+    .todo-list__list-item {
+        align-items: center;
+        border-bottom: 1px solid #2f2a43;
+        border-top: 1px solid #2f2a43;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: -1px;
+        padding: 8px 0;
+   }
+    .todo-list__list-item--completed .todo-list__name {
+        color: #a49ebd;
+        text-decoration: line-through;
+   }
+    .todo-list__list-item--completed .todo-list__toggle {
+        background-color: #a49ebd;
+        border-color: #a49ebd;
+   }
+    .todo-list__list-item--dragging {
+        opacity: 0.25;
+   }
+    .todo-list__move {
+        background: radial-gradient(#222031 25%, transparent 25%) 0 0 / 6px 6px;
+        cursor: ns-resize;
+        height: 16px;
+        margin-right: 8px;
+        width: 12px;
+   }
+    .todo-list__toggle {
+        border: 1px solid #a49ebd;
+        border-radius: 999px;
+        cursor: pointer;
+        height: 20px;
+        margin-right: 8px;
+        width: 20px;
+   }
+    .todo-list__name {
+        line-height: 1;
+   }
+    .todo-list__remove {
+        color: #a49ebd;
+        cursor: pointer;
+        font-size: 24px;
+        margin-top: -2px;
+        text-decoration: none !important;
+        transform: rotate(45deg);
+   }
+    .todo-list__remove:hover {
+        color: #e65e75;
+   }
+
+
+   .bbb{
+
+        background: linear-gradient(#2f2a43, #222031);
+        color: #fff;
+        font-family: 'Poppins', sans-serif;
+        height: auto;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        display: flex;
+        align-items: center;
+
+   }
+
+   .itemm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   }
+   
+
+   .input-group{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #8392AE; /* You can adjust the thickness and color as needed */
+    padding: 7px 0 ;  /* Optional: Add padding to the content inside the box */
+ 
+    gap: 20px;
+   }
+
+
+   .input-group p{
+    flex: auto;
+    font-size: 18px;
+
+   }
+
+   .input-group input{
+    flex: 0.2;
+
+   }
+
+   .input-group button{
+    flex: 1;
+
+   }
+
+
+
+
+
+
+
+   input {
+    background: #222031;
+    border-radius: 40px;
+    border: 1px solid transparent;
+    box-shadow: inset 0 2px 4px rgba(15, 14, 19, 0.25);
+    color: #fff;
+    display: block;
+    font-size: 16px;
+    height: 30px; 
+    outline: none;
+    padding: 10px 7px 10px 10px;
+    width: 18%;
+    min-width: 18%;
+}
+input::placeholder {
+    color: #a49ebd;
+    font-style: italic;
+}
+
+
+
+
+.title-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+#display-count{
+    padding: 20px 30px;
+    background-color: #342F4A;
+    border-radius: 50%;
+}
+
+
+#header-holder{
+    background-color: #151e2e !important;
+
+}
+
+    
+</style>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hustbee</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js library -->
+
+</head>
+
+
+
+
+</head>
+<body>
+<div id="header-holder">
+
+    <nav id="nav" class="navbar navbar-full">
+        <div class="container-fluid">
+            <div class="container container-nav">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="index.html"><img src="images/logo.svg" alt="Hustbee"></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div id="top-content" class="container-fluid bbb align-items-center ">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="col-sm-5">
+
+
+
+                                    <div class="card">
+                                        <div class="card__inner">
+                                            <div class="divv inpt add-t">
+                                                <input class="input" type="text" placeholder="Add Your Title" id="title-field" name="title-fi"   />
+                                                <button class="add-t" id="title-field"  onclick="updateText()">Title</button>
+                                            </div>
+
+                                            <div class="divv inpt add-t">
+                                                <input id="title-input-field" type="text" placeholder="Create Your Item" v-model="newItem" />
+                                                <button class="add-t" id="add-input">Add Item</button>
+                                            </div>
+
+
+
+                                            <ul class="todo-list inputs-container">
+
+      
+
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                </div>
+
+
+
+
+                                <div class="col-sm-7">
+                                    <div class="right-side">
+                                        <div id="life-wheel">
+                                            <!-- Graph will be generated here -->
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+        
+                                    </div>
+                                    <div class="title-box">
+                                        <h1 id="display-text">My Title</h1>
+                                        <h1 id="display-count">0</h1>
+                                    </div>
+
+                                </div>
+  
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="footer container-fluid">
+
+
+
+
+
+
+
+
+    
+    <div class="container">
+
+        <div class="sub-footer">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="sub-footer-menu">
+                        <ul>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="privacy.html">Privacy Policy</a></li>
+                        </ul>        
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="copyright">© Copyright 2018 Hustbee Hosting LLC, All Rights Reserved</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="js/bootstrap.min.js"></script>
+
+<script src="js/main.js"></script>
+
+
+<script>
+    // Function to update h1 tag with input field value
+    function updateText() {
+        const inputValue = document.getElementById('title-field').value;
+        document.getElementById('display-text').textContent = inputValue;
+    }
+  //  function updateText() {
+ //       const inputValue = document.getElementById('title-field').value;
+ //       document.getElementById('display-text').textContent = inputValue;
+ //   }
+
+    // Get reference to chart canvas
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Initialize chart
+    let myChart = createChart();
+
+    // Add event listener for input changes
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.addEventListener('input', function() {
+            console.log("01")
+            updateChartData(); // Update chart data with latest input values
+        });
+    });
+
+    
+    // Function to remove input
+    function removeInput(inputName) {
+
+        
+
+        const index = myChart.data.labels.indexOf(inputName);
+        if (index !== -1) {
+            myChart.data.labels.splice(index, 1);
+            myChart.data.datasets[0].data.splice(index, 1);
+            myChart.data.datasets[0].backgroundColor.splice(index, 1);
+            myChart.data.datasets[0].borderColor.splice(index, 1);
+            myChart.update();
+            const inputGroup = document.querySelector('input[name="' + inputName.toLowerCase().replace(' ', '-') + '"]').parentNode;
+            inputGroup.remove();
+        }
+
+        updateChartData()
+
+    }
+
+    // Add event listener for adding new input
+    document.getElementById('add-input').addEventListener('click', function() {
+
+        const newInputName = document.getElementById('title-input-field').value;
+
+
+
+        if (newInputName) {
+            const newInput = document.createElement('input');
+            newInput.type = 'number';
+            newInput.name = newInputName.toLowerCase().replace(' ', '-'); // Convert to lowercase and replace space with hyphen
+            newInput.value = '0';
+            newInput.placeholder = newInputName;
+            newInput.dataset.color = getRandomColor(); // Generate a random color for the new input
+            newInput.addEventListener('input', function() {
+                updateChartData(); // Update chart data with latest input values
+            });
+            const newLabel = document.createElement('p');
+            newLabel.htmlFor = newInput.name;
+            newLabel.textContent = newInputName + ' ';
+            const br = document.createElement('br');
+            const inputGroup = document.createElement('div');
+            inputGroup.classList.add('input-group');
+            inputGroup.appendChild(newLabel);
+            inputGroup.appendChild(newInput);
+
+
+                const removeButton = document.createElement('div');
+                removeButton.classList.add('todo-list__remove');
+                removeButton.textContent = '+';
+
+
+            removeButton.addEventListener('click', function() {
+                removeInput(newInputName);
+            });
+            inputGroup.appendChild(removeButton);
+            document.querySelector('.inputs-container').appendChild(inputGroup);
+
+            // Update chart with new input
+            myChart.data.labels.push(newInputName);
+            myChart.data.datasets[0].data.push(0);
+            myChart.data.datasets[0].backgroundColor.push(newInput.dataset.color);
+            myChart.data.datasets[0].borderColor.push(newInput.dataset.color.replace('1', '1'));
+
+
+            document.getElementById('title-input-field').value = '';
+
+            myChart.update();
+        }
+    });
+
+    // Function to update chart data with latest input values
+    function updateChartData() {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        const data = [];
+        const colors = [];
+        let total = 0;
+
+        inputs.forEach(input => {
+            data.push(parseInt(input.value));
+            colors.push(input.dataset.color);
+        });
+
+        myChart.data.datasets[0].data = data;
+        myChart.data.datasets[0].backgroundColor = colors;
+       
+        const borderColorsWithOpacity = colors.map(color => color.replace('1', '1'));
+        myChart.data.datasets[0].borderColor = borderColorsWithOpacity;
+
+
+      
+
+     
+
+        for (let i = 0; i < data.length; i++) {
+            total += data[i];
+          }
+
+
+        document.getElementById('display-count').textContent = total;
+
+
+        myChart.update();
+    }
+
+
+
+
+
+
+
+
+    // Function to create chart
+    function createChart() {
+        return new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Life Wheel',
+                    data: [],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 2,
+                    
+
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scale: {
+                    ticks: {
+                        beginAtZero: true
+                    }
+                },
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        });
+    }
+
+    // Function to generate a random color
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        
+        // Generate the RGB part of the color
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        
+        // Add the alpha channel for opacity
+        color += '99';
+    
+        return color;
+    }
+</script>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
